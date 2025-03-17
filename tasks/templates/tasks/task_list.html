@@ -1,0 +1,70 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<div class="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
+    <!-- Header Section -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Your Tasks</h2>
+        <a href="{% url 'create_task' %}" 
+           class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
+            + Add Task
+        </a>
+    </div>
+
+    <!-- Table Wrapper for Responsiveness -->
+    <div class="overflow-x-auto bg-gray-50 p-4 rounded-lg shadow">
+        <table class="w-full min-w-[600px] border border-gray-300 rounded-lg shadow-sm bg-white">
+            <!-- Table Header -->
+            <thead class="bg-gray-200 text-gray-700 uppercase text-sm">
+                <tr class="text-left">
+                    <th class="p-4 border-b border-gray-300">Title</th>
+                    <th class="p-4 border-b border-gray-300">Project</th>
+                    <th class="p-4 border-b border-gray-300">Due Date</th>
+                    <th class="p-4 border-b border-gray-300">Priority</th>
+                    <th class="p-4 border-b border-gray-300">Status</th>
+                    {% if user.is_superuser %}
+                        <th class="p-4 border-b border-gray-300 text-center">Actions</th>
+                    {% endif %}
+                </tr>
+            </thead>
+
+            <!-- Table Body -->
+            <tbody class="divide-y divide-gray-200 text-gray-800">
+                {% for task in tasks %}
+                <tr class="hover:bg-gray-100 even:bg-gray-50">
+                    <td class="p-4 font-medium">{{ task.title }}</td>
+                    <td class="p-4">{{ task.project.name }}</td>
+                    <td class="p-4">{{ task.due_date }}</td>
+                    <td class="p-4 font-semibold">
+                        <span class="{% if task.priority == 'High' %}text-red-600 
+                                     {% elif task.priority == 'Medium' %}text-yellow-600 
+                                     {% else %}text-green-600{% endif %}">
+                            {{ task.priority }}
+                        </span>
+                    </td>
+                    <td class="p-4">{{ task.status }}</td>
+
+                    {% if user.is_superuser %}
+                    <td class="p-4 text-center">
+                        <div class="flex justify-center gap-3">
+                            <a href="{% url 'update_task' task.id %}" 
+                               class="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition">
+                                Edit
+                            </a>
+                            <a href="{% url 'delete_task' task.id %}" 
+                               class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition">
+                                Delete
+                            </a>
+                        </div>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="p-6 text-center text-gray-500">No tasks available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

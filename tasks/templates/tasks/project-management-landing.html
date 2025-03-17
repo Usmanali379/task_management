@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Modern Project Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-indigo-600">TaskFlow</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="#features" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Features
+                        </a>
+                        <a href="#pricing" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Pricing
+                        </a>
+                        <a href="#testimonials" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Testimonials
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Log in</a>
+                    <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700">Sign up</a>
+                </div>
+                <div class="flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
+                        Streamline Your Project Management
+                    </h1>
+                    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">
+                        TaskFlow helps teams organize, track, and manage their work efficiently. Simplify your workflow and boost productivity.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50">
+                            Get Started
+                        </a>
+                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-800 bg-opacity-60 hover:bg-opacity-70">
+                            Watch Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 md:mt-0">
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div class="bg-gray-50 p-4 border-b">
+                            <div class="flex items-center">
+                                <div class="h-3 w-3 bg-red-500 rounded-full"></div>
+                                <div class="ml-2 h-3 w-3 bg-yellow-500 rounded-full"></div>
+                                <div class="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
+                                <div class="ml-4 text-sm text-gray-500">Project Dashboard</div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-lg font-semibold">Website Redesign</h2>
+                                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-medium">In Progress</span>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="task-card bg-white border border-gray-200 p-4 rounded-lg transition duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 rounded">
+                                                <h3 class="ml-3 text-sm font-medium">Homepage mockup design</h3>
+                                            </div>
+                                            <p class="mt-1 text-xs text-gray-500 ml-7">Due in 2 days</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Design</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-card bg-white border border-gray-200 p-4 rounded-lg transition duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 rounded">
+                                                <h3 class="ml-3 text-sm font-medium line-through text-gray-400">Client interview and requirements</h3>
+                                            </div>
+                                            <p class="mt-1 text-xs text-gray-500 ml-7">Completed yesterday</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Research</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-card bg-white border border-gray-200 p-4 rounded-lg transition duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 rounded">
+                                                <h3 class="ml-3 text-sm font-medium">Content structure planning</h3>
+                                            </div>
+                                            <p class="mt-1 text-xs text-gray-500 ml-7">Due tomorrow</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">Planning</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-card bg-white border border-gray-200 p-4 rounded-lg transition duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 rounded">
+                                                <h3 class="ml-3 text-sm font-medium">Technical requirements document</h3>
+                                            </div>
+                                            <p class="mt-1 text-xs text-gray-500 ml-7">Due in 3 days</p>
+                                        </div>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Documentation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="mt-6 flex items-center text-sm text-indigo-600 hover:text-indigo-800">
+                                <i class="fas fa-plus mr-2"></i> Add New Task
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Features</h2>
+                <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Everything you need to manage projects</p>
+                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Our comprehensive suite of tools helps you manage tasks, collaborate with your team, and deliver projects on time.</p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="feature-icon h-12 w-12 rounded-md flex items-center justify-center text-white">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-gray-900">Task Management</h3>
+                        <p class="mt-2 text-base text-gray-500">Create, assign, and organize tasks with deadlines, priorities, and labels. Track progress in real-time.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="feature-icon h-12 w-12 rounded-md flex items-center justify-center text-white">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-gray-900">Project Boards</h3>
+                        <p class="mt-2 text-base text-gray-500">Visualize your workflow with customizable Kanban boards. Move tasks between columns as they progress.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="feature-icon h-12 w-12 rounded-md flex items-center justify-center text-white">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-gray-900">Team Collaboration</h3>
+                        <p class="mt-2 text-base text-gray-500">Comment on tasks, share files, and mention team members. Stay connected with integrated messaging.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="feature-icon h-12 w-12 rounded-md flex items-center justify-center text-white">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-gray-900">Progress Tracking</h3>
+                        <p class="mt-2 text-base text-gray-500">Monitor project progress with visual dashboards, burndown charts, and performance metrics.</p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="feature-icon h-12 w-12 rounded-md flex items-center justify-center text-white">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-gray-900">Time Management</h3>
+                        <p class="mt-2 text-base text-gray-500">Track time spent on tasks, set estimates, and analyze team capacity with intuitive time tools.</p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                        <div class="feature-icon h-12 w-12 rounded-md flex items-center justify-center text-white">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-medium text-gray-900">Reports & Analytics</h3>
+                        <p class="mt-2 text-base text-gray-500">Generate detailed reports on project status, team performance, and resource allocation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Pricing</h2>
+                <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Plans for teams of all sizes</p>
+                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Choose the plan that fits your team's needs. All plans include core features with additional capabilities as you scale.</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="p-8">
+                        <h3 class="text-lg font-medium text-gray-900">Basic</h3>
+                        <p class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold tracking-tight">$9</span>
+                            <span class="ml-1 text-xl font-medium text-gray-500">/month per user</span>
+                        </p>
+                        <p class="mt-6 text-gray-500">Perfect for small teams getting started with project management.</p>
+                        
+                        <ul class="mt-8 space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Up to 10 projects</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Basic task management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Simple Kanban boards</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>5GB storage</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#" class="mt-8 block w-full bg-indigo-50 text-indigo-700 font-medium p-4 rounded-md text-center hover:bg-indigo-100 transition duration-150">Get Started</a>
+                    </div>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border-2 border-indigo-500 hover:shadow-xl transition duration-300">
+                    <div class="p-8">
+                        <div class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Most Popular</div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Professional</h3>
+                        <p class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold tracking-tight">$19</span>
+                            <span class="ml-1 text-xl font-medium text-gray-500">/month per user</span>
+                        </p>
+                        <p class="mt-6 text-gray-500">Advanced features for growing teams with multiple projects.</p>
+                        
+                        <ul class="mt-8 space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Unlimited projects</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Advanced task management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Custom boards & workflows</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Time tracking</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>25GB storage</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Basic reporting</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#" class="mt-8 block w-full bg-indigo-600 text-white font-medium p-4 rounded-md text-center hover:bg-indigo-700 transition duration-150">Get Started</a>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="p-8">
+                        <h3 class="text-lg font-medium text-gray-900">Enterprise</h3>
+                        <p class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold tracking-tight">$39</span>
+                            <span class="ml-1 text-xl font-medium text-gray-500">/month per user</span>
+                        </p>
+                        <p class="mt-6 text-gray-500">Complete solution for large teams with complex project needs.</p>
+                        
+                        <ul class="mt-8 space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Everything in Professional</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Advanced security features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Admin controls & permissions</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Advanced analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>100GB storage</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span>Dedicated support</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="#" class="mt-8 block w-full bg-indigo-50 text-indigo-700 font-medium p-4 rounded-md text-center hover:bg-indigo-100 transition duration-150">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div id="testimonials" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight">Trusted by teams worldwide</p>
+                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">See what our customers have to say about how TaskFlow has transformed their project management.</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <span class="text-indigo-800 font-bold">SC</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Sarah Chen</h4>
+                            <p class="text-gray-500">Product Manager, TechCorp</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"TaskFlow has completely transformed how our team collaborates. We've reduced our meeting time by 30% and increased productivity across all departments."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <span class="text-indigo-800 font-bold">JM</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">James Martinez</h4>
+                            <p class="text-gray-500">Design Lead, CreativeStudio</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The visual boards and task management features have made our design workflow so much smoother. We can now track revisions and feedback all in one place."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <span class="text-indigo-800 font-bold">KJ</span>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Kira Johnson</h4>
+                            <p class="text-gray-500">CEO, StartupInc</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a growing startup, TaskFlow gave us the structure we needed without overwhelming complexity. It scaled perfectly as our team grew from 5 to 50 people."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-indigo-700">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Ready to streamline your workflow?</span>
+                <span class="block text-indigo-200">Start your free trial today.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                        Get started
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 bg-opacity-60 hover:bg-opacity-70">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Product</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Features</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-base text-gray
